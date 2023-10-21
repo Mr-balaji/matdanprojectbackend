@@ -12,6 +12,8 @@ adminRoute.route("/login").post(async (req, res) => {
     try {
       const { email,password } = req.body;
       const useExist = await Admin.findOne({email});
+      console.log(req.body);
+
       if (!useExist) {
         // If user not found, return an error
         return res.json({
@@ -22,6 +24,7 @@ adminRoute.route("/login").post(async (req, res) => {
         });
       }
       const isMatch = await password === useExist.password;
+      console.log(isMatch);
         if (!isMatch) {
         // If passwords don't match, return an error
         return res.json({
