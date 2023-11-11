@@ -9,18 +9,7 @@ userRoute.use(cors());
 // Create a user
 userRoute.route("/create").post(async (req, res) => {
   try {
-    const { email } = req.body;
-
-    const useExist = await User.findOne({email});
-    if(useExist !== null){
-      res.json({
-        responseCode: 500,
-        responseStatus: "error",
-        responseMsg: "Duplicate Emails",
-        // responseData: ,
-      });
-    }
-    else{
+    
     const responseData = new User(req.body);
    responseData.save()
 
@@ -30,7 +19,6 @@ userRoute.route("/create").post(async (req, res) => {
       responseMsg: "User Created SuccessFully",
       responseData: responseData,
     });
-    }
   } catch (error) {
     logger.error("Error in route create user", error);
     res.status(500).json({
@@ -89,6 +77,24 @@ userRoute.delete("/:id",async(req,res)=>{
 
   }
 })
+
+//delete of Records
+userRoute.get("/:id",async(req,res)=>{
+  try {
+    const findDetailById = await User.findById(req.params.id);
+    res.json({
+      responseCode: 200,
+      responseStatus: "success",
+      responseMsg: "User Deleted SuccessFully",
+      responseData: findDetailById,
+    });
+  } catch (error) {
+    res.status(500).json({ error: err.message });
+
+  }
+})
+
+
 
 
 module.exports = userRoute;
