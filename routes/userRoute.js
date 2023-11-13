@@ -3,6 +3,7 @@ const userRoute = express.Router();
 const User = require("../models/user");
 const logger = require('../utility/logger');
 const cors = require('cors');
+const { getAlluserList } = require("../services/userservices");
 userRoute.use(cors());
 
 
@@ -41,7 +42,7 @@ userRoute.put('/:id', async (req, res) => {
       responseData: updatedUser,
     });
   } catch (err) {
-    res.status(500).json({ error: err.message });
+    res.status(500).json({ error: error.message });
   }
 });
 
@@ -89,11 +90,21 @@ userRoute.get("/:id",async(req,res)=>{
       responseData: findDetailById,
     });
   } catch (error) {
-    res.status(500).json({ error: err.message });
+    res.status(500).json({ error: error.message });
 
   }
 })
 
+
+// Get tasks for a specific user based on email
+userRoute.post('/filter', async (req, res) => {
+  try {
+    const tasks = await getAlluserList(req.body);
+    res.json(tasks);
+  } catch (error) {
+    res.status(500).json({ error: 'Internal Server Error', details: error.message });
+  }
+});
 
 
 
