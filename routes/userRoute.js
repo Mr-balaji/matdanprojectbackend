@@ -99,10 +99,19 @@ userRoute.get("/:id",async(req,res)=>{
 // Get tasks for a specific user based on email
 userRoute.post('/filter', async (req, res) => {
   try {
-    const tasks = await getAlluserList(req.body);
-    res.json(tasks);
+    const tasks = await getAlluserList(req.body.filters);
+    res.json({
+      responseCode: 200,
+      responseStatus: "success",
+      responseMsg: "User Deleted SuccessFully",
+      responseData: tasks,
+    });
   } catch (error) {
-    res.status(500).json({ error: 'Internal Server Error', details: error.message });
+    res.status(500).json({
+      responseCode: 500,
+      responseStatus: "error",
+      responseMsg: "Something went wrong!..",
+    });
   }
 });
 

@@ -1,7 +1,6 @@
 const User = require("../models/user");
 
 async function getAlluserList(requestedData) {
-
     const query = {};
     const filterField = [
         'firstName',
