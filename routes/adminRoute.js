@@ -60,7 +60,7 @@ adminRoute.route("/login").post(async (req, res) => {
           responseCode: 200,
           responseStatus: "success",
           responseMsg: "User Login Successfully ",
-          responseData: useExist,
+          responseData: { user: useExist, token: newToken },
         });
       }
 
