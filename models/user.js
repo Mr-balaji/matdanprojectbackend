@@ -2,260 +2,114 @@ const mongoose = require('mongoose');
 
 // Define the user schema
 const userSchema = new mongoose.Schema({
-  firstName: {
-    type: String,
-    trim: true,
+  familynumber: String,
+  name: String,
+  fathername: String,
+  surname: String,
+  petname: String,
+  fatherpetname: String,
+  surnamepetname: String,
+  mothername: String,
+  selectedGender: {
+    name: String,
+    code: String,
   },
-  fatherName: {
-    type: String,
-    trim: true,
+  date: Date,
+  address: String,
+  fulladdress: String,
+  wardno: String,
+  othervillagecome: String,
+  farmingrelated: String,
+  profitoffarming: String,
+  worker: String,
+  job: String,
+  govjob: String,
+  helpingculture: String,
+  homewoman: String,
+  dharm: String,
+  cast: String,
+  upjat: String,
+  bloodgroup: String,
+  selectedraktandan: {
+    id: String,
+    name: String,
   },
-  lastName: {
-    type: String,
-    trim: true,
+  adharcard: {
+    id: String,
+    name: String,
   },
-  gender: {
-    type: String,
-    trim: true,
-  },
-
-  cast: {
-    type: String,
-
-  },
-
-  DOB: {
-    type: String,
-
-    trim: true,
-  },
-
-  Death: {
-    type: String,
-
-    trim: true,
-  },
-  address: {
-    type: String,
-
-    trim: true,
-  },
-  familyno: {
-    type: String,
-
-    trim: true,
-  },
-  homeno: {
-    type: String,
-
-    trim: true,
-  },
-  voter: {
-    type: String,
-
-    trim: true,
-  },
-  voterperson: {
-    type: String,
-
-    trim: true,
-  },
-  profession: {
-    type: String,
-
-    trim: true,
-  },
-  education: {
-    type: String,
-
-    trim: true,
-  },
-  bloodgroup: {
-    type: String,
-
-    trim: true,
-  },
-  blooddonate: {
-    type: String,
-
-    trim: true,
-  },
-  adharnumber: {
-    type: String,
-
-    trim: true,
-  },
-  pannumber: {
-    type: String,
-
-    trim: true,
-  },
-  voteridNumber: {
-    type: String,
-
-    trim: true,
+  pancard: {
+    id: String,
+    name: String,
   },
   passport: {
-    type: String,
-
-    trim: true,
+    id: String,
+    name: String,
   },
-  rashancard: {
-    type: String,
-
-    trim: true,
+  incometax: {
+    id: String,
+    name: String,
   },
-  daridryareshekhali: {
-    type: String,
-
-    trim: true,
+  homeno: String,
+  grampanchayat: String,
+  sarkariyognalabh: {
+    id: String,
+    name: String,
   },
-
-  email: {
-    type: String,
-    unique: true,
-    trim: true,
-  },
-  drivinglicenece: {
-    type: String,
-
-  },
-  bankdetail: {
-    type: String,
-
-  },
-  govschembenefits: {
-    type: String,
-
-  },
-  govschembenefits: {
-    type: String,
-
-  },
-  incomtax: {
-    type: String,
-
-  },
-  smoking: {
-    type: String,
-
-  },
-  healthissue: {
-    type: String,
-
-  },
-  apagatv: {
-    type: String,
-
-  },
-  mariatalstatus: {
-    type: String,
-
-  },
-  shareholder: {
-    type: String,
-
-  },
-  sandharbh: {
-    type: String,
-
-  },
-  vima: {
-    type: String,
-
-  },
-  toilet: {
-    type: String,
-
-  },
-  photo: {
-    type: String,
-
-  },
-  chand: {
-    type: String,
-
-  },
-  familydoctor: {
-    type: String,
-
-  },
-  phoneno: {
-    type: String,
-
-  },
-  mobile: {
-    type: String,
-
-  },
-  home: {
-    type: String,
-
+  shauchalay: {
+    id: String,
+    name: String,
   },
   hometype: {
-    type: String,
-
+    id: String,
+    name: String,
   },
-  socialwork: {
-    type: String,
-
-  },
-  rajkiypad: {
-    type: String,
-
-  },
-  sampanti: {
-    type: String,
-
-  },
-  arthikvishleshan: {
-    type: String,
-
-  },
-  rajkiyvishleshan: {
-    type: String,
-
-  },
-  rajkiypaksh: {
-    type: String,
-
-  },
-  panyachastrot: {
-    type: String,
-
-  },
-  chaviconection: {
-    type: String,
-
-  },
-  gharphala: {
-    type: String,
-
-  },
-  panipatti: {
-    type: String,
-
+  waterconnection: {
+    id: String,
+    name: String,
   },
   kaushalya: {
-    type: String,
-
+    id: String,
+    name: String,
   },
   gyasconnection: {
-    type: String,
-
+    id: String,
+    name: String,
   },
   lightconnection: {
-    type: String,
-
+    id: String,
+    name: String,
   },
-  language: {
-    type: String,
-
+  yadinumber: String,
+  vidhansabha: String,
+  jilhaparishad: String,
+  sirialnumber: String,
+  lokshabha: String,
+  talukaparishad: String,
+  wardnumber: String,
+  matdar: String,
+  jamin: String,
+  sheti: String,
+  ghare: String,
+  adhikadhik: String,
+  aarthikvishleshan: String,
+  rajkiyvishleshan: String,
+  rajkiypaksh: String,
+  sharedharak: {
+    id: String,
+    name: String,
   },
-  mothername: {
-    type: String,
-
+  sadharabh: {
+    id: String,
+    name: String,
   },
+  vima: {
+    id: String,
+    name: String,
+  },
+  mritvu: String,
+  deathdate: Date,
+  deathreason: String,
 });
 
 
