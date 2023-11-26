@@ -5,6 +5,8 @@ const userSchema = new mongoose.Schema({
   familynumber: String,
   name: String,
   fathername: String,
+  email:String,
+  phone:Number,
   surname: String,
   petname: String,
   fatherpetname: String,

@@ -7,6 +7,8 @@ async function getAlluserList(requestedData) {
       'name',
       'fathername',
       'surname',
+      'email',
+      'phone',
       'petname',
       'fatherpetname',
       'surnamepetname',
