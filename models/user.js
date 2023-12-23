@@ -44,7 +44,10 @@ const userSchema = new mongoose.Schema({
     id: Number,
     name: String,
   },
-  address: String,
+  address: {
+    id: Number,
+    name: String,
+  },
   fulladdress: String,
   wardno: String,
   othervisllagecome: {
