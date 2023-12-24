@@ -48,8 +48,14 @@ const userSchema = new mongoose.Schema({
     id: Number,
     name: String,
   },
-  fulladdress: String,
-  wardno: String,
+  fulladdress: {
+    id: String,
+    name: String,
+  },
+  wardno: {
+    id: String,
+    name: String,
+  },
   othervisllagecome: {
     id: String,
     name: String,
@@ -59,13 +65,31 @@ const userSchema = new mongoose.Schema({
     id: Number,
     name: String,
   },
-  schoolname: String,
-  mahavidalay: String,
-  abyaskarm: String,
+  schoolname: {
+    id: String,
+    name: String,
+  },
+  mahavidalay: {
+    id: String,
+    name: String,
+  },
+  abyaskarm: {
+    id: String,
+    name: String,
+  },
   vibhag: String,
-  dharm: String,
-  cast: String,
-  upjat: String,
+  dharm: {
+    id: String,
+    name: String,
+  },
+  cast: {
+    id: String,
+    name: String,
+  },
+  upjat: {
+    id: String,
+    name: String,
+  },
   adharcard: String,
   pancard: {
     id: String,
