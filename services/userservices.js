@@ -7,44 +7,65 @@ async function getAlluserList(requestedData) {
       'name',
       'fathername',
       'surname',
-      'email',
-      'phone',
       'petname',
       'fatherpetname',
       'surnamepetname',
       'mothername',
       'selectedGender',
-      'date',
-      'address',
-      'fulladdress',
-      'wardno',
-      'othervillagecome',
-      'farmingrelated',
-      'profitoffarming',
-      'worker',
-      'job',
-      'govjob',
-      'helpingculture',
-      'homewoman',
+      'email',
+      'phone',
+      'borndate',
+      'sarkariyojna',
+      'vaivhaikstiti',
+      'daridrareshekahili',
+      'chand',
+      'language',
+      'vaivsayname',
+      'schoolname',
+      'mahavidalay',
+      'abyaskarm',
+      'vibhag',
+      'vaivsaynamevalue',
       'dharm',
-      'cas',
+      'cast',
       'upjat',
       'bloodgroup',
-      'selectedraktandan',
-      'adharcard' ,
+      'blooddonate',
+      'vaisan',
+      'ajar',
+      'familydoctor',
+      'bllodnodateplace',
+      'vaisanname',
+      'ajarname',
+      'doctorname',
+      'doctoraddress',
+      'padvi',
+      'adharcard',
       'pancard',
+      'passport',
+      'rashancard',
       'incometax',
+      'votercard',
+      'pancardno',
+      'rashnacardname',
+      'dukandarachename',
+      'passportno',
+      'incometaxn',
+      'votercardname',
       'homeno',
-      'grampanchayat',
       'sarkariyognalabh',
       'shauchalay',
       'hometype',
       'waterconnection',
+      'chaviconnection',
+      'gharphala',
+      'panipatti',
       'kaushalya',
       'gyasconnection',
       'lightconnection',
       'yadinumber',
       'vidhansabha',
+      'grampanchayat',
       'jilhaparishad',
       'sirialnumber',
       'lokshabha',
@@ -56,25 +77,44 @@ async function getAlluserList(requestedData) {
       'ghare',
       'adhikadhik',
       'aarthikvishleshan',
+      'samjkarya',
+      'rajkiypad',
       'rajkiyvishleshan',
       'rajkiypaksh',
+      'samajkarya',
+      'rajkiyPadName',
+      'bankkhate',
       'sharedharak',
       'sadharabh',
       'vima',
+      'vimanam',
+      'bankkhatename',
+      'bankkhateno',
+      'sharedharakename',
       'mritvu',
+      'mritvupramanpatra',
       'deathdate',
       'deathreason',
-    ]
-
+    ];
+    
     // Add conditions based on the fields provided in requestedData
     filterField.forEach(field => {
-        if (requestedData[field]) {
-          query[field] = requestedData[field];
-        }
-      });
+      // Split the field by dots to handle nested fields
+      const fieldParts = field.split('.');
+      
+      // Traverse the nested object in requestedData
+      let value = requestedData;
+      for (const part of fieldParts) {
+        value = value[part];
+      }
+  
+      // Add the condition to the query if the value is truthy
+      if (value) {
+        query[field] = value;
+      }
+    });
+       console.log("requestedData",query);
    const resp = User.find(query)
-
-   
   return resp;
 }
 
