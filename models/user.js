@@ -50,7 +50,10 @@ const userSchema = new mongoose.Schema({
     name: String,
     code: String,
   },
-  cast: String,
+  cast: {
+    name: String,
+    code: String,
+  },
   upjat: {
     name: String,
     code: String,
