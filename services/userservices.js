@@ -113,8 +113,9 @@ async function getAlluserList(requestedData) {
         query[field] = value;
       }
     });
-       console.log("requestedData",query);
-   const resp = User.find(query)
+
+    console.log('filterField',filterField);
+   const resp = User.find(requestedData)
   return resp;
 }
 
