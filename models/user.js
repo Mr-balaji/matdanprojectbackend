@@ -11,17 +11,54 @@ const userSchema = new mongoose.Schema({
   surnamepetname: String,
   mothername: String,
   selectedGender: {
-    id: String,
     name: String,
+    code: String,
   },
   email: String,
   phone: String,
   borndate: Date,
-  rashancard: {
+  sarkariyojna: Array,
+  vaivhaikstiti: {
+    name: String,
+    code: String,
+  },
+  daridrareshekahili: {
     id: String,
     name: String,
   },
-  bloodgroup: String,
+  chand: Array,
+  language: Array,
+  vaivsayname: {
+    id: Number,
+    name: String,
+  },
+  schoolname: {
+    name: String,
+    code: String,
+  },
+  mahavidalay: {
+    name: String,
+    code: String,
+  },
+  abyaskarm: Array,
+  vibhag: {
+    name: String,
+    code: String,
+  },
+  vaivsaynamevalue: Array,
+  dharm: {
+    name: String,
+    code: String,
+  },
+  cast: String,
+  upjat: {
+    name: String,
+    code: String,
+  },
+  bloodgroup: {
+    name: String,
+    code: String,
+  },
   blooddonate: {
     id: String,
     name: String,
@@ -34,63 +71,20 @@ const userSchema = new mongoose.Schema({
     id: String,
     name: String,
   },
+  familydoctor: {
+    id: String,
+    name: String,
+  },
+  bllodnodateplace: Array,
   vaisanname: Array,
-  ajarname: String,
-  bllodnodateplace: String,
-  mritvu: String,
-  deathdate: Date,
-  deathreason: String,
-  rashnacardname: {
-    id: Number,
+  ajarname: Array,
+  doctorname: String,
+  doctoraddress: String,
+  padvi: String,
+  adharcard: {
     name: String,
+    code: String,
   },
-  address: {
-    id: Number,
-    name: String,
-  },
-  fulladdress: {
-    id: String,
-    name: String,
-  },
-  wardno: {
-    id: String,
-    name: String,
-  },
-  othervisllagecome: {
-    id: String,
-    name: String,
-  },
-  othervillagecomename: String,
-  vaivsayname: {
-    id: Number,
-    name: String,
-  },
-  schoolname: {
-    id: String,
-    name: String,
-  },
-  mahavidalay: {
-    id: String,
-    name: String,
-  },
-  abyaskarm: {
-    id: String,
-    name: String,
-  },
-  vibhag: String,
-  dharm: {
-    id: String,
-    name: String,
-  },
-  cast: {
-    id: String,
-    name: String,
-  },
-  upjat: {
-    id: String,
-    name: String,
-  },
-  adharcard: String,
   pancard: {
     id: String,
     name: String,
@@ -99,13 +93,30 @@ const userSchema = new mongoose.Schema({
     id: String,
     name: String,
   },
+  rashancard: {
+    id: String,
+    name: String,
+  },
   incometax: {
     id: String,
     name: String,
   },
-  pancardno: String,
+  votercard: {
+    id: String,
+    name: String,
+  },
+  pancardno: {
+    name: String,
+    code: String,
+  },
+  rashnacardname: {
+    id: Number,
+    name: String,
+  },
+  dukandarachename: String,
   passportno: String,
-  incometaxno: String,
+  incometaxno:String,
+  votercardname: String,
   homeno: String,
   sarkariyognalabh: {
     id: String,
@@ -131,6 +142,10 @@ const userSchema = new mongoose.Schema({
     id: String,
     name: String,
   },
+  panipatti: {
+    id: String,
+    name: String,
+  },
   kaushalya: {
     id: String,
     name: String,
@@ -143,7 +158,6 @@ const userSchema = new mongoose.Schema({
     id: String,
     name: String,
   },
-  sarkariyojna: Array,
   yadinumber: String,
   vidhansabha: String,
   grampanchayat: String,
@@ -152,23 +166,33 @@ const userSchema = new mongoose.Schema({
   lokshabha: String,
   talukaparishad: String,
   wardnumber: String,
-  matdar: String,
-  jamin: String,
-  sheti: String,
-  ghare: String,
-  adhikadhik: String,
-  aarthikvishleshan: String,
-  samjkarya: {
-    id: String,
+  matdar: Array,
+  jamin: Array,
+  sheti: Array,
+  ghare: Array,
+  adhikadhik: {
     name: String,
+    code: String,
   },
+  aarthikvishleshan: {
+    name: String,
+    code: String,
+  },
+  samjkarya: Array,
   rajkiypad: {
     id: String,
     name: String,
   },
-  rajkiyvishleshan: String,
-  rajkiypaksh: String,
+  rajkiyvishleshan: {
+    name: String,
+    code: String,
+  },
+  rajkiypaksh: {
+    name: String,
+    code: String,
+  },
   samajkarya: Array,
+  rajkiyPadName: Array,
   bankkhate: {
     id: String,
     name: String,
@@ -185,9 +209,17 @@ const userSchema = new mongoose.Schema({
     id: String,
     name: String,
   },
-  bankkhatename: String,
-  bankkhateno: String,
-  sharedharakename: String,
+  vimaname:Array,
+  bankkhatename: Array,
+  bankkhateno: {
+    name: String,
+    code: String,
+  },
+  sharedharakename: Array,
+  mritvu: String,
+  mritvupramanpatra: String,
+  deathdate: Date,
+  deathreason: String,
 });
 
 
