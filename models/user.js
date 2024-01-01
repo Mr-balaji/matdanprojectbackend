@@ -4,6 +4,10 @@ const mongoose = require('mongoose');
 const userSchema = new mongoose.Schema({
   familynumber: String,
   name: String,
+  userImage:{
+    type:String,
+    // required:true
+},
   fathername: String,
   surname: String,
   petname: String,

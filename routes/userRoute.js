@@ -5,19 +5,28 @@ const logger = require('../utility/logger');
 const cors = require('cors');
 const { getAlluserList } = require("../services/userservices");
 userRoute.use(cors());
+const multer = require('multer');
 
+const upload = multer({dest:'uploads/'})
+userRoute.use("/uploads",express.static('uploads'));
 
 // Create a user
-userRoute.route("/create").post(async (req, res) => {
+userRoute.route("/create").post(upload.single("userImage"),async (req, res) => {
   try {
-    
-    const responseData = new User(req.body);
+
+    const json = JSON.parse(req.body.json);
+  const userImage =req.file?.path;
+    const respData = {
+      ...json,'userImage':userImage
+    }
+
+    const responseData = new User(respData); 
    responseData.save()
 
     res.json({
       responseCode: 200,
       responseStatus: "success",
-      responseMsg: "User Created SuccessFully",
+      responseMsg: "User Created SuccessFully", 
       responseData: responseData,
     });
   } catch (error) {
@@ -34,7 +43,14 @@ userRoute.route("/create").post(async (req, res) => {
 // update Records
 userRoute.put('/:id', async (req, res) => {
   try {
-    const updatedUser = await User.findByIdAndUpdate(req.params.id, req.body, { new: true });
+
+    const json = JSON.parse(req.body.json);
+    const userImage =req.file?.path;
+      const respData = {
+        ...json,'userImage':userImage
+      }
+  
+    const updatedUser = await User.findByIdAndUpdate(req.params.id, respData, { new: true });
     res.json({
       responseCode: 200,
       responseStatus: "success",
