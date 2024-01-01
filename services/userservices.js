@@ -114,7 +114,6 @@ async function getAlluserList(requestedData) {
       }
     });
 
-    console.log('filterField',filterField);
    const resp = User.find(requestedData)
   return resp;
 }
