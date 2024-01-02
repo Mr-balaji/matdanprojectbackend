@@ -44,7 +44,7 @@ userRoute.route("/create").post(upload.single("userImage"),async (req, res) => {
 userRoute.put('/:id', async (req, res) => {
   try {
 
-    const json = JSON.parse(req.body.json);
+    const json = req.body.json;
     const userImage =req.file?.path;
       const respData = {
         ...json,'userImage':userImage
@@ -58,7 +58,8 @@ userRoute.put('/:id', async (req, res) => {
       responseData: updatedUser,
     });
   } catch (err) {
-    res.status(500).json({ error: error.message });
+    console.log(err.message);
+    res.status(500).json({ error: err.message });
   }
 });
 
