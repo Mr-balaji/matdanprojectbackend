@@ -8,6 +8,10 @@ const userSchema = new mongoose.Schema({
     type:String,
     // required:true
 },
+addredetails:{
+  name: String,
+    code: String,
+},
   fathername: String,
   surname: String,
   petname: String,
