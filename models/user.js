@@ -3,7 +3,10 @@ const mongoose = require('mongoose');
 // Define the user schema
 const userSchema = new mongoose.Schema({
   familynumber: String,
-  name: String,
+  name: {
+    name: String,
+      code: String,
+  },
   userImage:{
     type:String,
     // required:true
@@ -12,8 +15,14 @@ addredetails:{
   name: String,
     code: String,
 },
-  fathername: String,
-  surname: String,
+  fathername: {
+    name: String,
+      code: String,
+  },
+  surname: {
+    name: String,
+      code: String,
+  },
   petname: String,
   fatherpetname: String,
   surnamepetname: String,
