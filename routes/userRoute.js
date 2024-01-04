@@ -2,11 +2,11 @@ const express = require("express");
 const userRoute = express.Router();
 const User = require("../models/user");
 const logger = require('../utility/logger');
+const mongoose = require('mongoose');
 const cors = require('cors');
 const { getAlluserList } = require("../services/userservices");
 userRoute.use(cors());
 const multer = require('multer');
-
 const upload = multer({dest:'uploads/'})
 userRoute.use("/uploads",express.static('uploads'));
 
@@ -49,8 +49,23 @@ userRoute.put('/:id', async (req, res) => {
       const respData = {
         ...json,'userImage':userImage
       }
-  
-    const updatedUser = await User.findByIdAndUpdate(req.params.id, respData, { new: true });
+
+// const updatedUser = await User.findByIdAndUpdate(
+//   req.params.id, 
+//   respData,
+//   { new: true },
+//   (err, updatedPerson) => {
+//     if(err) {
+//       console.log(err);
+//     } else {
+//       // print updated person
+//       console.log(updatedPerson); 
+//     }
+//   }
+// );
+
+    
+    const updatedUser = await User.findByIdAndUpdate(req.params.id, req.body, { new: true });
     res.json({
       responseCode: 200,
       responseStatus: "success",
