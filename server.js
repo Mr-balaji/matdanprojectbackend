@@ -10,7 +10,7 @@ const adminRoute = require('./routes/adminRoute');
 app.use(bodyParser.json());
 const Route = express.Router();
 
-// app.use(cors());
+app.use(cors());
 app.use("/uploads",express.static('uploads'));
 
 // Routes
