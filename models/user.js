@@ -86,10 +86,7 @@ const userSchema = new mongoose.Schema({
         name: String,
         code: String
     },
-    vaivsayname: {
-        id: String,
-        name: String
-    },
+    vaivsayname: Array,
     schoolname: {
         name: String,
         code: String
