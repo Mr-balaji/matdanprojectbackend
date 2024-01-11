@@ -326,6 +326,13 @@ const userSchema = new mongoose.Schema({
         id: String,
         name: String
     },
+    sandharabhname:String,
+    sandharabhaddress:String,
+    sandharabhphone:String,
+    nokri: {
+        id: String,
+        name: String
+    },
     vima: {
         id: String,
         name: String
