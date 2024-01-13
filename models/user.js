@@ -22,14 +22,8 @@ const userSchema = new mongoose.Schema({
     email: String,
     phone: String,
     borndate: Date,
-    sarkariyojna: {
-        name: String,
-        code: String
-    },
-    kaushalay: {
-        name: String,
-        code: String
-    },
+    sarkariyojna: Array,
+    kaushalay: Array,
     vaivhaikstiti: {
         name: String,
         code: String
@@ -38,10 +32,7 @@ const userSchema = new mongoose.Schema({
         id: String,
         name: String
     },
-    chand: {
-        name: String,
-        code: String
-    },
+    chand: Array,
     fathername: {
         name: String,
         code: String
@@ -95,10 +86,7 @@ const userSchema = new mongoose.Schema({
         name: String,
         code: String
     },
-    abyaskarm: {
-        name: String,
-        code: String
-    },
+    abyaskarm: Array,
     vibhag: {
         name: String,
         code: String
@@ -136,18 +124,9 @@ const userSchema = new mongoose.Schema({
         id: String,
         name: String
     },
-    bllodnodateplace: {
-        name: String,
-        code: String
-    },
-    vaisanname: {
-        name: String,
-        code: String
-    },
-    ajarname: {
-        name: String,
-        code: String
-    },
+    bllodnodateplace: Array,
+    vaisanname: Array,
+    ajarname: Array,
     doctorname: String,
     doctoraddress: String,
     padvi: String,
@@ -187,10 +166,7 @@ const userSchema = new mongoose.Schema({
     dukandarachename: String,
     incometaxno: String,
     votercardname: String,
-    drivinglincesname: {
-        name: String,
-        code: String
-    },
+    drivinglincesname: Array,
     drivinglicencename: String,
     homeno: String,
     sarkariyognalabh: {
@@ -229,22 +205,10 @@ const userSchema = new mongoose.Schema({
         id: String,
         name: String
     },
-    panyachaprakar: {
-        name: String,
-        code: String
-    },
-    chavi: {
-        name: String,
-        code: String
-    },
-    gascompanyname: {
-        name: String,
-        code: String
-    },
-    agencyname: {
-        name: String,
-        code: String
-    },
+    panyachaprakar: Array,
+    chavi: Array,
+    gascompanyname: Array,
+    agencyname: Array,
     vidhansabha: String,
     vidhantsabhasirialnumber: String,
     vidhansabhayadinumber: String,
@@ -259,14 +223,8 @@ const userSchema = new mongoose.Schema({
     grampanchayatyadinumber: String,
     talukaparishad: String,
     wardnumber: String,
-    matdar: {
-        name: String,
-        code: String
-    },
-    jamin: {
-        name: String,
-        code: String
-    },
+    matdar: Array,
+    jamin: Array,
     sheti: {
         name: String,
         code: String
@@ -275,14 +233,8 @@ const userSchema = new mongoose.Schema({
         id: String,
         name: String
     },
-    aarthikvishleshan: {
-        name: String,
-        code: String
-    },
-    Janavare: {
-        name: String,
-        code: String
-    },
+    aarthikvishleshan: Array,
+    Janavare: Array,
     vahane: {
         id: String,
         name: String
@@ -295,22 +247,10 @@ const userSchema = new mongoose.Schema({
         id: String,
         name: String
     },
-    rajkiyvishleshan: {
-        name: String,
-        code: String
-    },
-    rajkiypaksh: {
-        name: String,
-        code: String
-    },
-    samajkarya: {
-        name: String,
-        code: String
-    },
-    rajkiyPadName: {
-        name: String,
-        code: String
-    },
+    rajkiyvishleshan: Array,
+    rajkiypaksh: Array,
+    samajkarya: Array,
+    rajkiyPadName: Array,
     bankkhate: {
         id: String,
         name: String
@@ -326,30 +266,16 @@ const userSchema = new mongoose.Schema({
     sandharabhname:String,
     sandharabhaddress:String,
     sandharabhphone:String,
-    nokri: {
-        id: String,
-        name: String
-    },
+    vaivsaynamevalue:Array,
+    nokri: Array,
     vima: {
         id: String,
         name: String
     },
-    bankkhatename: {
-        name: String,
-        code: String
-    },
-    bankkhateno: {
-        name: String,
-        code: String
-    },
-    sharedharakename: {
-        name: String,
-        code: String
-    },
-    vimaname: {
-        name: String,
-        code: String
-    },
+    bankkhatename: Array,
+    bankkhateno: Array,
+    sharedharakename: Array,
+    vimaname: Array,
     mritvu: String,
     mritvupramanpatra: String,
     deathdate: Date,
