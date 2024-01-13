@@ -41,10 +41,7 @@ const userSchema = new mongoose.Schema({
         name: String,
         code: String
     },
-    language: {
-        name: String,
-        code: String
-    },
+    language: Array,
     dist: {
         name: String,
         code: String
