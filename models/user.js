@@ -166,10 +166,7 @@ const userSchema = new mongoose.Schema({
     drivinglincesname: Array,
     drivinglicencename: String,
     homeno: String,
-    sarkariyognalabh: {
-        id: String,
-        name: String
-    },
+    sarkariyognalabh: Array,
     shauchalay: {
         id: String,
         name: String
