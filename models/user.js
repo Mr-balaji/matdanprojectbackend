@@ -220,6 +220,7 @@ const userSchema = new mongoose.Schema({
     matdar: Array,
     jamin: Array,
     sheti: Array,
+    samajkaryavalue:Array,
     ghare: {
         id: String,
         name: String
