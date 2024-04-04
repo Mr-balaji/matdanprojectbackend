@@ -255,6 +255,10 @@ const userSchema = new mongoose.Schema({
         id: String,
         name: String
     },
+    rastyacheprakar:Array,
+    gatarselected:Array,
+    lambi:String,
+    rundi:String,
     sandharabhname:String,
     sandharabhaddress:String,
     sandharabhphone:String,
@@ -273,7 +277,8 @@ const userSchema = new mongoose.Schema({
     deathdate: Date,
     deathreason: String,
     userImage:String,
-    vahanahanedetails: Array
+    vahanahanedetails: Array,
+    janavarSections:Array
 });
 
 
