@@ -226,7 +226,10 @@ const userSchema = new mongoose.Schema({
         name: String
     },
     aarthikvishleshan: Array,
-    Janavare: Array,
+    Janavare:  {
+        id: String,
+        name: String
+    },
     vahane: {
         id: String,
         name: String
