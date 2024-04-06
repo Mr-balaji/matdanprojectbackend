@@ -65,7 +65,7 @@ userRoute.put('/:id', async (req, res) => {
 // );
 
     
-    const updatedUser = await User.findByIdAndUpdate(req.params.id, req.body, { new: true });
+    const updatedUser = await User.findByIdAndUpdate(req.params.id, json, { new: true });
     res.json({
       responseCode: 200,
       responseStatus: "success",
