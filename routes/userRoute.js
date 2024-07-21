@@ -175,44 +175,71 @@ userRoute
     try {
       const json = JSON.parse(req.body.json);
       const userImage = req.file?.path;
-
+      
       cloudinary.config({
         cloud_name: "dxmw5ftsc",
         api_key: "434511147799427",
         api_secret: "vEVqtYsLIu_zfGumDy7x5QOKfec",
       });
-
-      if (userImage != "") {
-        const user = await User.findById(req.body.id);
-        const imageId = user.userImage.public_id;
-
-        await cloudinary.v2.uploader.destroy(imageId);
-
-        const myCloud = await cloudinary.v2.uploader.upload(userImage, {
-          folder: "avatars",
-          width: 150,
-          crop: "scale",
-        });
-
-        json.userImage = {
-          public_id: myCloud.public_id,
-          url: myCloud.secure_url,
-        };
+      
+     
+      
+      if (userImage) { // Check if userImage is truthy
+        try {
+          const user = await User.findById(req.body.id);
+          
+          if (user && user.userImage && user.userImage.public_id) {
+            const imageId = user.userImage.public_id;
+            
+            try {
+              await cloudinary.v2.uploader.destroy(imageId);
+            } catch (destroyError) {
+              console.error(`Failed to delete image with ID ${imageId}: ${destroyError.message}`);
+            }
+          }
+          
+          try {
+            const myCloud = await cloudinary.v2.uploader.upload(userImage, {
+              folder: "avatars",
+              width: 150,
+              crop: "scale",
+            });
+            
+            json.userImage = {
+              public_id: myCloud.public_id,
+              url: myCloud.secure_url,
+            };
+          } catch (uploadError) {
+            console.error(`Failed to upload new image: ${uploadError.message}`);
+            // Handle the error as needed (e.g., send an error response)
+          }
+        } catch (findError) {
+          console.error(`Failed to find user: ${findError.message}`);
+          // Handle the error as needed (e.g., send an error response)
+        }
       }
-
-      const responseData = await User.findByIdAndUpdate(req.body.id, json, {
-        new: true,
-        runValidators: true,
-        useFindAndModify: true,
-      });
-
-
-      res.json({
-        responseCode: 200,
-        responseStatus: "success",
-        responseMsg: "User Updated SuccessFully",
-        responseData: responseData,
-      });
+      
+      try {
+        const responseData = await User.findByIdAndUpdate(req.body.id, json, {
+          new: true,
+          runValidators: true,
+          useFindAndModify: true,
+        });
+        
+        res.json({
+          responseCode: 200,
+          responseStatus: "success",
+          responseMsg: "User Updated Successfully",
+          responseData: responseData,
+        });
+      } catch (updateError) {
+        console.error(`Failed to update user: ${updateError.message}`);
+        res.status(500).json({
+          responseCode: 500,
+          responseStatus: "error",
+          responseMsg: "Failed to update user",
+        });
+      }
     } catch (error) {
       logger.error("Error in route create user", error);
       res.status(500).json({
