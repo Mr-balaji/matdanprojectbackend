@@ -280,7 +280,14 @@ const userSchema = new mongoose.Schema({
     mritvupramanpatra: String,
     deathdate: Date,
     deathreason: String,
-    userImage:String,
+    userImage:{
+        public_id: {
+            type: String,
+        },
+        url: {
+            type: String,
+        }
+    },
     vahanahanedetails: Array,
     janavarSections:Array
 });
